@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chinese-Hakka Dictionary</title>
+</head>
+<body>
+    <h1>睡眠小羊 疑問</h1>
+    <input type="text" id="query" placeholder="輸入你的提問（例如：音量、多設備）">
+    <button onclick="search()">Search</button>
+    <p id="result"></p>
+
+    <script>
+        function search() {
+            var query = document.getElementById('query').value;
+            var url = 'https://script.google.com/macros/s/AKfycbz-bbt7jz5Tb6ZiUkpzfoj_AY1dw1-Tp-z65TkXujgakLSNlaC6jGn5WgxphRA7T0Rx/exec?q=' + encodeURIComponent(query);
+
+            fetch(url)
+                .then(response => response.text())
+                .then(text => document.getElementById('result').innerText = text)
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
